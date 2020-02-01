@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { getList, getDetails } from "./api/api";
+import List from "./views/List";
+import Details from "./views/Details";
 
 export default function App() {
   return (
@@ -22,7 +24,7 @@ export default function App() {
             <Details />
           </Route>
           <Route path="/">
-            <Home />
+            <List />
           </Route>
         </Switch>
       </div>
@@ -30,10 +32,3 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function Details() {
-  return <h2>Details</h2>;
-}

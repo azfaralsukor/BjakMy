@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from "axios";
 
 const api = axios.create({
   baseURL: 'https://cdn-discover.hooq.tv/v1.2/discover/'
