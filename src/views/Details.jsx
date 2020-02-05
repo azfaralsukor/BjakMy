@@ -1,4 +1,4 @@
-import { Paper, Grid, Divider, Button } from '@material-ui/core';
+import { Button, Divider, Grid, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useEffect, useState } from "react";
 import { getDetails } from "../api/api";
@@ -80,7 +80,7 @@ const useStyles = makeStyles({
     backgroundColor: 'yellow',
     padding: 5
   },
-  homeButton:{
+  homeButton: {
     marginBottom: 10
   }
 });
@@ -115,19 +115,17 @@ export default function Details() {
   }
 
   const AddInfoItem = ({ label, value }) => {
-    return <Grid item className={classes.itemGrid} style={{ padding: '10px 15px 10px 0' }} md={4} xs={12}>
-      {value &&
-        <React.Fragment>
-          <Grid className={classes.font}
-            style={{ fontWeight: 500, marginBottom: 2 }}>
-            {label}
-          </Grid>
-          <Grid className={classes.font}>
-            {value}
-          </Grid>
-        </React.Fragment>
-      }
-    </Grid>
+    return value ? <Grid item className={classes.itemGrid} style={{ padding: '10px 15px 10px 0' }} md={4} xs={12}>
+      <React.Fragment>
+        <Grid className={classes.font}
+          style={{ fontWeight: 500, marginBottom: 2 }}>
+          {label}
+        </Grid>
+        <Grid className={classes.font}>
+          {value}
+        </Grid>
+      </React.Fragment>
+    </Grid> : ''
   }
 
   const renderCastAndCredit = () => {
