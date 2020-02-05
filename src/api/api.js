@@ -15,7 +15,6 @@ export const getList = async page => {
         }
       }
     );
-    console.log(res);
     return res.data;
   } catch (e) {
     console.error(e);
@@ -25,7 +24,6 @@ export const getList = async page => {
 export const getDetails = async id => {
   try {
     const res = await api.get(`titles/${id}`);
-    console.log(res);
     return res.data;
   } catch (e) {
     console.error(e);

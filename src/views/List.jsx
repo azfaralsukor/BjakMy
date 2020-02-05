@@ -76,7 +76,6 @@ export default function Home() {
       (async function iife() {
         let res = await getList(1);
         res = res && res.data.filter(i => i.type === 'Multi-Title-Manual-Curation');
-        console.log('x', res);
         setData(res);
       })();
     }
@@ -84,10 +83,9 @@ export default function Home() {
 
   const changePage = page => async () => {
     setPage(page);
-    let x = await getList(page);
-    x = x && x.data.filter(i => i.type === 'Multi-Title-Manual-Curation');
-    console.log('x', x);
-    setData(x);
+    let res = await getList(page);
+    res = res && res.data.filter(i => i.type === 'Multi-Title-Manual-Curation');
+    setData(res);
   }
 
   const handleDetails = id => () => {

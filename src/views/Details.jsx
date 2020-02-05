@@ -152,7 +152,6 @@ export default function Details() {
         window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, async (_, key, value) => {
           if (key === 'id') {
             let res = await getDetails(value);
-            console.log('d', res);
             setData(res);
           }
         })
