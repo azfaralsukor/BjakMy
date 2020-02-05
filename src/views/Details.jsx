@@ -106,10 +106,12 @@ export default function Details() {
             {label}
           </Grid>
           <Grid className={classes.font}>
-            {valueArray.map((i, index) =>
+            {valueArray.map((i, index) => <span>
               <a key={index} className={classes.link} href={`https://duckduckgo.com/?q=${i.replace(' ', '+')}`}>
-                {i}{index < valueArray.length - 1 && ', '}
-              </a>)
+                {i}
+              </a>
+              {index < valueArray.length - 1 && ', '}
+            </span>)
             }
           </Grid>
         </React.Fragment>
