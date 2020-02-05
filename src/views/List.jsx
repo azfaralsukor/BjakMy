@@ -91,7 +91,7 @@ export default function Home() {
   }
 
   const handleDetails = id => () => {
-    id && window.location.assign(`/details?id=${id}`);
+    id && window.location.assign(`/#/details?id=${id}`);
   }
   return <div className={classes.root}>
     <div className={classes.collection}>

@@ -148,9 +148,9 @@ export default function Details() {
       (async function iife() {
         window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, async (_, key, value) => {
           if (key === 'id') {
-            let x = await getDetails(value);
-            console.log('d', x);
-            setData(x);
+            let res = await getDetails(value);
+            console.log('d', res);
+            setData(res);
           }
         })
       })();
