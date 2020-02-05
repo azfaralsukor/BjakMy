@@ -22,9 +22,9 @@ export const getList = async () => {
   }
 }
 
-export const getDetails = async () => {
+export const getDetails = async id => {
   try {
-    const res = await api.get('titles/e6464ce6-42c9-43ae-be23-0dd57f50add1');
+    const res = await api.get(`titles/${id}`);
     console.log(res);
     return res.data;
   } catch (e) {

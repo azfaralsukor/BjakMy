@@ -63,28 +63,32 @@ export default function Home() {
     if (!data) {
       (async function iife() {
         let x = await getList();
-        x = x.data.filter(i => i.type === 'Multi-Title-Manual-Curation');
+        x = x && x.data.filter(i => i.type === 'Multi-Title-Manual-Curation');
         console.log('x', x);
         setData(x);
       })();
     }
   }, [data])
+
+  const handleDetails = id => () => {
+    id && window.location.assign(`/details?id=${id}`);
+  }
   return <div className={classes.root}>
     <div className={classes.collection}>
       {data && data.map((category, i) =>
-        <React.Fragment>
+        <React.Fragment key={i}>
           <div className={classes.categoryTitle}>{category.row_name}</div>
-          <Grid container key={i} className={classes.category}>
+          <Grid container className={classes.category}>
             <Grid container className={classes.movies}>
               {category.data.map((movie, j) =>
                 <Card key={j} className={classes.card}>
                   <CardMedia
                     className={classes.media}
                     image={movie.images.find(i => i.type === 'POSTER').url}
-                    onClick={() => alert('cyka')}
+                    onClick={handleDetails(movie.id)}
                   />
                   <CardContent className={classes.content}>
-                    <div className={classes.title} onClick={() => alert('blyat')}>
+                    <div className={classes.title} onClick={handleDetails(movie.id)}>
                       {movie.title}
                     </div>
                   </CardContent>
