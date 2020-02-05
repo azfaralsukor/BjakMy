@@ -98,7 +98,7 @@ export default function Details() {
   }
 
   const CastAndCreditItem = ({ label, value: valueArray }) => {
-    return <Grid item className={classes.itemGrid} md={4} xs={12}>
+    return <Grid item className={classes.itemGrid} md={6} xs={12}>
       {valueArray &&
         <React.Fragment>
           <Grid className={classes.font}
