@@ -180,8 +180,8 @@ export default function Details() {
           </Grid>
         </Grid>
         <img
-          src={data.data.images.find(i => i.type === 'SPOTLIGHT') ? data.data.images.find(i => i.type === 'SPOTLIGHT').url : 
-          data.data.images.find(i => i.type === 'BACKGROUND').url}
+          src={data.data.images.find(i => i.type === 'SPOTLIGHT') ? data.data.images.find(i => i.type === 'SPOTLIGHT').url :
+            data.data.images.find(i => i.type === 'BACKGROUND').url}
           alt={data.data.title}
           width="100%"
         />
