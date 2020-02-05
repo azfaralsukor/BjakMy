@@ -63,7 +63,7 @@ There you have it, the web app on your machine's browser.
 
 ## Deployment
 
-To deploy, go to package.json and change `homepage` to your own homepage then run
+To deploy, go to package.json and *change* homepage field to your own homepage then run
 ```
 npm run deploy
 ```
