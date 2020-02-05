@@ -55,56 +55,29 @@ const useStyles = makeStyles({
       textDecoration: 'underline'
     }
   },
+  itemGrid: {
+    padding: '10px 15px 10px 0'
+  },
+  font: {
+    fontFamily: "Roboto, Arial, sans-serif",
+    fontSize: 14,
+    fontWeight: 300
+  },
+  section: {
+    marginTop: 30
+  },
+  descriptionContainer: {
+    marginTop: 30,
+    marginBottom: 30
+  },
+  castAndCreditContainer: {
+    margin: '20px 10px 30px 0'
+  },
+  details: {
+    display: 'block',
+  },
 });
 
-const CastAndCreditItem = ({ label, value: valueArray }) => {
-  const classes = useStyles();
-  const font = {
-    fontFamily: "Roboto, Arial, sans-serif",
-    fontSize: 14,
-    fontWeight: 300
-  };
-  return <Grid item style={{ padding: '10px 15px 10px 0' }} md={4} xs={12}>
-    {valueArray &&
-      <React.Fragment>
-        <Grid
-          style={{ ...font, marginBottom: 5 }}>
-          {label}
-        </Grid>
-        <Grid
-          style={font}>
-          {valueArray.map((i, index) =>
-            <a key={index} className={classes.link} href={`https://duckduckgo.com/?q=${i.replace(' ', '+')}`}>
-              {i}{index < valueArray.length - 1 && ', '}
-            </a>)
-          }
-        </Grid>
-      </React.Fragment>
-    }
-  </Grid>
-}
-
-const AddInfoItem = ({ label, value }) => {
-  const font = {
-    fontFamily: "Roboto, Arial, sans-serif",
-    fontSize: 14,
-    fontWeight: 300
-  };
-  return <Grid item style={{ padding: '10px 15px 10px 0' }} md={4} xs={12}>
-    {value &&
-      <React.Fragment>
-        <Grid
-          style={{ ...font, fontWeight: 500, marginBottom: 2 }}>
-          {label}
-        </Grid>
-        <Grid
-          style={font}>
-          {value}
-        </Grid>
-      </React.Fragment>
-    }
-  </Grid>
-}
 export default function Details() {
   const classes = useStyles();
   const [data, setData] = useState();
@@ -113,13 +86,49 @@ export default function Details() {
     return Math.round(ms / (60 * 1000));
   }
 
+  const CastAndCreditItem = ({ label, value: valueArray }) => {
+    return <Grid item className={classes.itemGrid} md={4} xs={12}>
+      {valueArray &&
+        <React.Fragment>
+          <Grid className={classes.font}
+            style={{ marginBottom: 5 }}>
+            {label}
+          </Grid>
+          <Grid className={classes.font}>
+            {valueArray.map((i, index) =>
+              <a key={index} className={classes.link} href={`https://duckduckgo.com/?q=${i.replace(' ', '+')}`}>
+                {i}{index < valueArray.length - 1 && ', '}
+              </a>)
+            }
+          </Grid>
+        </React.Fragment>
+      }
+    </Grid>
+  }
+
+  const AddInfoItem = ({ label, value }) => {
+    return <Grid item className={classes.itemGrid} style={{ padding: '10px 15px 10px 0' }} md={4} xs={12}>
+      {value &&
+        <React.Fragment>
+          <Grid className={classes.font}
+            style={{ fontWeight: 500, marginBottom: 2 }}>
+            {label}
+          </Grid>
+          <Grid className={classes.font}>
+            {value}
+          </Grid>
+        </React.Fragment>
+      }
+    </Grid>
+  }
+
   const renderCastAndCredit = () => {
     const types = data && data.data && data.data.people && [...new Set(data.data.people.map(i => i.role))]
     return types && <React.Fragment>
-      <div style={{ marginTop: 30, marginBottom: 30 }}>
+      <div className={classes.section}>
         <span className={classes.addInfo}>CAST AND CREDITS</span>
       </div>
-      <Grid container style={{ marginBottom: 30 }}>
+      <Grid container className={classes.castAndCreditContainer}>
         {types.map((i, index) =>
           <CastAndCreditItem key={index} label={i} value={data.data.people.filter(j => j.role === i).map(i => i.name)} />
         )}
@@ -160,13 +169,13 @@ export default function Details() {
           </Grid>
         </Grid>
         <Grid container className={classes.body}>
-          <Grid container style={{ marginTop: 30, marginBottom: 30 }}>
+          <Grid container className={classes.descriptionContainer}>
             <span className={classes.description}>{data.data.description}</span>
           </Grid>
-          <Grid container style={{ display: 'block' }}>
+          <Grid container className={classes.details}>
             <Divider />
             {renderCastAndCredit()}
-            <div style={{ marginTop: 30, marginBottom: 30 }}>
+            <div className={classes.section}>
               <span className={classes.addInfo}>ADDITIONAL INFORMATION</span>
             </div>
             <Grid container>
