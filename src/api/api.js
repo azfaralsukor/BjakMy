@@ -4,13 +4,13 @@ const api = axios.create({
   baseURL: 'https://cdn-discover.hooq.tv/v1.2/discover/'
 });
 
-export const getList = async () => {
+export const getList = async page => {
   try {
     const res = await api.get('feed',
       {
         params: {
           region: 'ID',
-          page: 1,
+          page: page,
           perPage: 20
         }
       }

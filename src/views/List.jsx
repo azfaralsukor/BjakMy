@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Grid } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Grid, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useEffect, useState } from "react";
 import { getList } from "../api/api";
@@ -53,22 +53,42 @@ const useStyles = makeStyles({
     flexWrap: 'nowrap',
     height: 350
   },
+  page:{
+    alignSelf: 'center',
+    fontFamily: 'Roboto, Arial, sans-serif',
+    fontWeight: 300,
+    fontSize: 18,
+    paddingRight: 12
+  },
+  button:{
+    margin: 5,
+    minWidth: 'unset'
+  }
 });
 
 export default function Home() {
   const classes = useStyles();
   const [data, setData] = useState();
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (!data) {
       (async function iife() {
-        let x = await getList();
-        x = x && x.data.filter(i => i.type === 'Multi-Title-Manual-Curation');
-        console.log('x', x);
-        setData(x);
+        let res = await getList(1);
+        res = res && res.data.filter(i => i.type === 'Multi-Title-Manual-Curation');
+        console.log('x', res);
+        setData(res);
       })();
     }
   }, [data])
+
+  const changePage = page => async () => {
+    setPage(page);
+    let x = await getList(page);
+    x = x && x.data.filter(i => i.type === 'Multi-Title-Manual-Curation');
+    console.log('x', x);
+    setData(x);
+  }
 
   const handleDetails = id => () => {
     id && window.location.assign(`/details?id=${id}`);
@@ -98,6 +118,11 @@ export default function Home() {
           </Grid>
         </React.Fragment>
       )}
+      <Grid container justify='center'>
+        <span className={classes.page}>Page</span>
+        <Button className={classes.button} variant="contained" onClick={changePage(1)} disabled={page === 1} color="primary">1</Button>
+        <Button className={classes.button} variant="contained" onClick={changePage(2)} disabled={page === 2} color="primary">2</Button>
+      </Grid>
     </div>
   </div>;
 }
