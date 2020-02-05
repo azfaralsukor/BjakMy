@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/BjakMy/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/BjakMy/static/js/main.ee0d603e.chunk.js",
-    "main.js.map": "/BjakMy/static/js/main.ee0d603e.chunk.js.map",
+    "main.js": "/BjakMy/static/js/main.28da73d6.chunk.js",
+    "main.js.map": "/BjakMy/static/js/main.28da73d6.chunk.js.map",
     "runtime-main.js": "/BjakMy/static/js/runtime-main.a2b72458.js",
     "runtime-main.js.map": "/BjakMy/static/js/runtime-main.a2b72458.js.map",
     "static/js/2.83e09c21.chunk.js": "/BjakMy/static/js/2.83e09c21.chunk.js",
     "static/js/2.83e09c21.chunk.js.map": "/BjakMy/static/js/2.83e09c21.chunk.js.map",
     "index.html": "/BjakMy/index.html",
-    "precache-manifest.d7d72a46c316418f78841d02aedc2915.js": "/BjakMy/precache-manifest.d7d72a46c316418f78841d02aedc2915.js",
+    "precache-manifest.9f687b0edef4cefad5b4ae1653943c3c.js": "/BjakMy/precache-manifest.9f687b0edef4cefad5b4ae1653943c3c.js",
     "service-worker.js": "/BjakMy/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/BjakMy/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.83e09c21.chunk.js.LICENSE": "/BjakMy/static/js/2.83e09c21.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.a2b72458.js",
     "static/js/2.83e09c21.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.ee0d603e.chunk.js"
+    "static/js/main.28da73d6.chunk.js"
   ]
 }
