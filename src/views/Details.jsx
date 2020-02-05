@@ -1,4 +1,4 @@
-import { Paper, Grid, Divider } from '@material-ui/core';
+import { Paper, Grid, Divider, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useEffect, useState } from "react";
 import { getDetails } from "../api/api";
@@ -76,6 +76,13 @@ const useStyles = makeStyles({
   details: {
     display: 'block',
   },
+  type: {
+    backgroundColor: 'yellow',
+    padding: 5
+  },
+  homeButton:{
+    marginBottom: 10
+  }
 });
 
 export default function Details() {
@@ -83,7 +90,8 @@ export default function Details() {
   const [data, setData] = useState();
 
   const milisec2roundMin = ms => {
-    return Math.round(ms / (60 * 1000));
+    const runtime = Math.round(ms / (60 * 1000))
+    return `${runtime} minute${runtime > 1 ? 's' : ''}`;
   }
 
   const CastAndCreditItem = ({ label, value: valueArray }) => {
@@ -124,7 +132,7 @@ export default function Details() {
 
   const renderCastAndCredit = () => {
     const types = data && data.data && data.data.people && [...new Set(data.data.people.map(i => i.role))]
-    return types && <React.Fragment>
+    return types.length ? <React.Fragment>
       <div className={classes.section}>
         <span className={classes.addInfo}>CAST AND CREDITS</span>
       </div>
@@ -134,7 +142,7 @@ export default function Details() {
         )}
       </Grid>
       <Divider />
-    </React.Fragment>
+    </React.Fragment> : ''
   }
 
   useEffect(() => {
@@ -151,7 +159,8 @@ export default function Details() {
     }
   }, [data])
   return <div className={classes.root}>
-    {data && <div className={classes.collection} >
+    {data && <div className={classes.collection}>
+      <Button className={classes.homeButton} onClick={() => window.location.assign('/')}>{'< Home'}</Button>
       <Paper elevation={3} className={classes.paper}>
         <Grid container>
           <img
@@ -164,8 +173,9 @@ export default function Details() {
             <h1 className={classes.titleh1}><span className={classes.title}>{data.data.title}</span></h1>
             <div>
               <span className={classes.releaseYear}>{data.data.meta.releaseYear}</span>
-              <span className={classes.releaseYear}>{data.data.running_time ? `${milisec2roundMin(data.data.running_time)} minutes` : ''}</span>
+              <span className={classes.releaseYear}>{data.data.running_time ? milisec2roundMin(data.data.running_time) : ''}</span>
             </div>
+            <h5><span className={classes.type}>{data.data.as}</span></h5>
           </Grid>
         </Grid>
         <Grid container className={classes.body}>
@@ -181,7 +191,7 @@ export default function Details() {
             <Grid container>
               <AddInfoItem label='Audio Language' value={data.data.audios && data.data.audios.join(', ')} />
               <AddInfoItem label='Subtitles' value={data.data.languages && data.data.languages.join(', ')} />
-              <AddInfoItem label='Run time' value={data.data.running_time && data.data.running_time ? `${milisec2roundMin(data.data.running_time)} minutes` : ''} />
+              <AddInfoItem label='Run time' value={data.data.running_time && data.data.running_time ? milisec2roundMin(data.data.running_time) : ''} />
               <AddInfoItem label='Rating' value={data.data.meta && data.data.meta.ageRating} />
               <AddInfoItem label='Genre' value={data.data.tags && data.data.tags.map(i => i.label).join(', ')} />
               <AddInfoItem label='Seasons' value={data.data.seasons && data.data.seasons.join(', ')} />
