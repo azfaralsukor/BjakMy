@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# User Management
 
-## Available Scripts
+A simple view for a list of movies and it's details. Working [demo](https://azfaralsukor.github.com/BjakMy).
 
-In the project directory, you can run:
+## Getting Started
 
-### `yarn start`
+These instructions will get you a copy of the project up and running on your local machine for development. See deployment for notes on how to deploy the project on a live system.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### File structure
+In this repository, you will find
+```
+.
+|____README.md
+|____public
+| |____favicon.ico
+| |____index.html
+| |____logo512.png
+| |____manifest.json
+| |____robots.txt
+| |____logo192.png
+|____package.json
+|____src
+| |____App.css
+| |____index.js
+| |____index.css
+| |____App.test.js
+| |____App.jsx
+| |____api
+| | |____api.js
+| |____serviceWorker.js
+| |____setupTests.js
+| |____views
+| | |____Details.jsx
+| | |____List.jsx
+| |____logo.svg
+```
+### Prerequisites
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You should have these installed on your machine before getting started.
+* [git](https://git-scm.com/)
+* [NodeJS](https://nodejs.org/en/)
+* [Visual Studio Code](https://code.visualstudio.com/)_(optional)_
 
-### `yarn test`
+### Clone / Download
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You may download ZIP file and extract the files, clone with [GitHub Desktop](https://desktop.github.com/), or
 
-### `yarn build`
+```
+cd /your-desired-path
+git clone https://github.com/azfaralsukor/BjakMy.git
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installing
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Run
+```
+cd BjakMy
+npm install
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There you have it, the web app on your machine's browser.
 
-### `yarn eject`
+## Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To deploy, go to package.json and change `homepage` to your own homepage then run
+```
+npm run deploy
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [NodeJS](https://nodejs.org/en/)
+* [ReactJS](https://reactjs.org/) - The framework
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## License
 
-## Learn More
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Acknowledgments
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Go to [Material-UI](https://material-ui.com/) for the awesome React components.
