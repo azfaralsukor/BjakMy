@@ -82,6 +82,9 @@ const useStyles = makeStyles({
   },
   homeButton: {
     marginBottom: 10
+  },
+  summaryGrid: {
+    marginBottom: 40
   }
 });
 
@@ -160,7 +163,7 @@ export default function Details() {
     {data && <div className={classes.collection}>
       <Button className={classes.homeButton} onClick={() => window.location.assign('/')}>{'< Home'}</Button>
       <Paper elevation={3} className={classes.paper}>
-        <Grid container>
+        <Grid container className={classes.summaryGrid}>
           <img
             src={data.data.images.find(i => i.type === 'POSTER').url}
             alt={data.data.title}
@@ -176,6 +179,12 @@ export default function Details() {
             <h5><span className={classes.type}>{data.data.as}</span></h5>
           </Grid>
         </Grid>
+        <img
+          src={data.data.images.find(i => i.type === 'SPOTLIGHT') ? data.data.images.find(i => i.type === 'SPOTLIGHT').url : 
+          data.data.images.find(i => i.type === 'BACKGROUND').url}
+          alt={data.data.title}
+          width="100%"
+        />
         <Grid container className={classes.body}>
           <Grid container className={classes.descriptionContainer}>
             <span className={classes.description}>{data.data.description}</span>
