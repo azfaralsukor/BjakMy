@@ -162,7 +162,7 @@ export default function Details() {
   }, [data])
   return <div className={classes.root}>
     {data && <div className={classes.collection}>
-      <Button className={classes.homeButton} onClick={() => window.location.assign('/')}>{'< Home'}</Button>
+      <Button className={classes.homeButton} onClick={() => window.location.assign('/hooq/#/')}>{'< Home'}</Button>
       <Paper elevation={3} className={classes.paper}>
         <Grid container className={classes.summaryGrid}>
           <img

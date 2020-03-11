@@ -109,3 +109,5 @@ package-lock.json
 
 # Build files
 /build
+
+.DS_Store

@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://azfaralsukor.github.io/BjakMy",
+  "homepage": "https://azfaralsukor.github.io/hooq",
   "dependencies": {
     "@material-ui/core": "^4.9.0",
     "@testing-library/jest-dom": "^4.2.4",
